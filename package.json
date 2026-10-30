@@ -1,0 +1,17 @@
+{
+  "name": "pdfjs-smooth-viewer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/sync-pdfjs.mjs",
+    "sync-pdfjs": "node scripts/sync-pdfjs.mjs",
+    "fetch-reference": "node scripts/fetch-reference.mjs",
+    "test": "node tests/run.mjs"
+  },
+  "devDependencies": {
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "6.4.299",
+    "puppeteer": "^25.16.0"
+  }
+}

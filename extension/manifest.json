@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Smooth PDF Viewer",
+  "version": "0.1.0",
+  "description": "Replaces Chrome's PDF viewer with a pdf.js-based viewer whose scrolling and zooming never wait on rendering.",
+  "minimum_chrome_version": "128",
+  "permissions": [
+    "declarativeNetRequestWithHostAccess",
+    "webNavigation",
+    "webRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "file://*/*"
+      ],
+      "run_at": "document_start",
+      "all_frames": true,
+      "js": [
+        "contentscript.js"
+      ]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "incognito": "split",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "viewer/viewer.html"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

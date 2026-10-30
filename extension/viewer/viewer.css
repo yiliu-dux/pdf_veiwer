@@ -1,0 +1,60 @@
+html {
+  background: #525659;
+  /* We adjust scroll positions ourselves when zooming; Chrome's scroll
+     anchoring would fight that. */
+  overflow-anchor: none;
+  /* Keep clientWidth constant whether or not the vertical scrollbar shows. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+}
+
+#sizer {
+  position: relative;
+}
+
+.page {
+  position: absolute;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  contain: strict;
+}
+
+.page canvas {
+  position: absolute;
+  display: block;
+}
+
+.page canvas.low {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#status {
+  position: fixed;
+  inset: 40% 10% auto;
+  color: #eee;
+  font: 16px system-ui, sans-serif;
+  text-align: center;
+}
+
+#status button {
+  font: inherit;
+  margin-top: 12px;
+}
+
+#indicator {
+  position: fixed;
+  right: 24px;
+  bottom: 16px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font: 13px system-ui, sans-serif;
+  pointer-events: none;
+}
